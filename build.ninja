@@ -1,0 +1,9 @@
+rule cc
+  command = gcc -c $in -o $out
+rule link
+  command = gcc -o $out $in
+
+build tsort: link tsort.o tsort_driver.o
+build tsort.o: cc tsort.c
+build tsort_driver.o: cc tsort_driver.c
+
